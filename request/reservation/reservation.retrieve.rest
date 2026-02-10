@@ -1,0 +1,11 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Reservation by ID
+# @name getReservationById
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations?cendynPropertyId={{propertyID}}&reservationID=RES-TEST-002
+Accept: */*
+Authorization: Bearer {{token}}
+###

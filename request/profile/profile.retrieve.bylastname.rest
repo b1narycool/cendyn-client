@@ -1,0 +1,12 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profile by Last Name
+# @name getProfileByLastName
+# QueryType: 1 = Name
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/1?LastName=Anderson&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

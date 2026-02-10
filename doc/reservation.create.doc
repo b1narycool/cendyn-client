@@ -1,0 +1,800 @@
+Creates or updates Reservation records asynchronously.​
+
+###
+Path Parameters
+
+accountId
+integer
+int32
+min: 
+1
+max: 
+2147483647
+required
+The account Id
+
+###
+Body
+
+A list of Reservation resource records
+array object[]
+The Reservation model is used to define a reservation to stay at a property, including daily rates and profile guests.
+
+cendynPropertyID
+string
+min: 
+1
+required
+The Cendyn property ID where the stay is reserved.
+
+uniqueIDs
+array object[]
+required
+A set of ID values that uniquely identify the reservation record.
+The UniqueIDType is a class to define an identifier used by Reservations, Profiles, and other entities.
+
+
+resTypeCode
+string
+max: 
+1
+required
+A single-character type code for the reservation: Reserved stay (R), Lease (L).
+
+resArriveDate
+string
+date-time
+required
+
+resDepartDate
+string
+date-time
+required
+The guest departure date for the reservation.
+
+numAdults
+integer
+int32
+required
+###
+
+
+Example:
+curl https://int-cencloud-web-api-qa01-eus2-hudpecdagceyc8be.eastus2-01.azurewebsites.net/api/v1/accounts//inbound/reservations \
+  --request POST \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/json' \
+  --data '[
+  {
+    "cendynPropertyID": "",
+    "propertyName": null,
+    "uniqueIDs": [
+      {
+        "id": "",
+        "type": "",
+        "context": null
+      }
+    ],
+    "resTypeCode": "",
+    "resStatusCode": null,
+    "resStatus": null,
+    "confirmationNum": null,
+    "centralResNum": null,
+    "resArriveDate": "",
+    "resDepartDate": "",
+    "resArriveTime": null,
+    "resDepartTime": null,
+    "numRooms": null,
+    "buildingCode": null,
+    "roomTypeCode": null,
+    "roomNumber": null,
+    "rateCode": null,
+    "rateCategoryCode": null,
+    "rateAmount": null,
+    "rateConfidential": null,
+    "packageCode": null,
+    "packageAmount": null,
+    "packageDescription": null,
+    "discountCode": null,
+    "discountAmount": null,
+    "discountPercent": null,
+    "discountReasonCode": null,
+    "guaranteedByCode": null,
+    "mop": null,
+    "isNotRefundable": null,
+    "sharerCode": null,
+    "legNumbers": null,
+    "groupID": null,
+    "groupName": null,
+    "resSourceCode": null,
+    "resSourceCategory": null,
+    "trvlAgntPmsID": null,
+    "trvlAgntCode": null,
+    "trvlAgntIATA": null,
+    "trvlAgntName": null,
+    "marketSegmentCode": null,
+    "marketCodeCategory": null,
+    "marketRegionCode": null,
+    "companyCode": null,
+    "companyName": null,
+    "billingCode": null,
+    "billingName": null,
+    "customerSegment": null,
+    "numAdults": 1,
+    "numYouths": null,
+    "numChildren": null,
+    "totalRoomNights": null,
+    "dateResMade": null,
+    "dateResUpdated": null,
+    "resMadeBy": null,
+    "resUpdatedBy": null,
+    "checkedInBy": null,
+    "checkedOutBy": null,
+    "cancellationID": null,
+    "cancellationCode": null,
+    "cancellationComment": null,
+    "cancellationDate": null,
+    "sourceName": null,
+    "sourceID": null,
+    "averageRoomRate": null,
+    "depositAmountDue": null,
+    "depositAmountPaid": null,
+    "accountBalance": null,
+    "totalOtherRevenue": null,
+    "totalFBRevenue": null,
+    "totalRoomRevenue": null,
+    "totalTax": null,
+    "totalRevenue": null,
+    "currencyCode": null,
+    "guests": [
+      {
+        "arrivalDate": null,
+        "departureDate": null,
+        "profileSequence": null,
+        "isPrimary": true,
+        "folioID": null,
+        "percentageBilled": 1,
+        "purposeOfStay": null,
+        "originalReservationNum": null,
+        "originalConfirmationNum": null,
+        "guestGroupSequence": null,
+        "taxType": null,
+        "guestProfile": {
+          "cendynPropertyID": "",
+          "propertyName": null,
+          "uniqueIDs": [
+            {
+              "id": "",
+              "type": "",
+              "context": null
+            }
+          ],
+          "profileTypeCode": "",
+          "profileTypeDescription": null,
+          "nameCode": null,
+          "profileTypeCategory": null,
+          "jobTitle": null,
+          "salutation": null,
+          "firstName": null,
+          "familiarName": null,
+          "middleName": null,
+          "lastName": "",
+          "fullName": null,
+          "nameSuffix": null,
+          "vipid": null,
+          "vipCode": null,
+          "primaryLanguage": null,
+          "genderCode": null,
+          "dobYear": null,
+          "dobMonth": null,
+          "dobDayOfMonth": null,
+          "companyName": null,
+          "arNumber": null,
+          "allowMail": null,
+          "allowEMail": null,
+          "guestPriv": null,
+          "allowPhone": null,
+          "allowSMS": null,
+          "allowHistory": null,
+          "allowMarketResearch": null,
+          "allowThirdParty": null,
+          "allowLoyaltyProgram": null,
+          "creatorCode": null,
+          "lastUpdaterCode": null,
+          "dateProfileCreated": null,
+          "dateProfileUpdated": null,
+          "inactiveDate": null,
+          "nationality": null,
+          "resortCode": null,
+          "retiredProfileId": null,
+          "transferredSubscriptionId": null,
+          "sourceName": null,
+          "sourceID": null,
+          "optOutMarketing": null,
+          "optOutDate": null,
+          "profileExtension": {
+            "languageCode": null,
+            "salutationExt": null,
+            "firstNameExt": null,
+            "familiarNameExt": null,
+            "middleNameExt": null,
+            "lastNameExt": null,
+            "nameSuffixExt": null,
+            "companyNameExt": null,
+            "blacklist": null,
+            "blackListMessage": null,
+            "anonymizationStatus": null,
+            "priorityCode": null,
+            "roomsPotential": null,
+            "salesScope": null,
+            "scopeCity": null,
+            "actionCode": null,
+            "businessSegment": null,
+            "accountType": null,
+            "salesSource": null,
+            "industryCode": null,
+            "competitionCode": null,
+            "influenceCode": null
+          },
+          "addresses": [
+            {
+              "addressTypeCode": "",
+              "addressTypeDescription": null,
+              "addressStatus": null,
+              "externalId": null,
+              "attn": null,
+              "address1": null,
+              "address2": null,
+              "city": null,
+              "stateProvince": null,
+              "postalCode": null,
+              "countryCode": null,
+              "isPrimary": null,
+              "addressLanguage": null,
+              "addressCleansed": null,
+              "optOutMarketing": null,
+              "optOutDate": null
+            }
+          ],
+          "memberships": [
+            {
+              "programCode": "",
+              "membershipID": "",
+              "membershipCategory": null,
+              "membershipName": null,
+              "membershipLevel": null,
+              "membershipStatus": null,
+              "enrollmentCode": null,
+              "dateMembershipStarts": null,
+              "dateMembershipExpires": null,
+              "totalStays": null,
+              "awardCredits": null,
+              "awardAvailable": null,
+              "primaryAirline": null,
+              "displaySequence": null,
+              "externalID": null,
+              "sourceName": null,
+              "sourceID": null,
+              "isActive": true,
+              "inactiveDate": null,
+              "pointsIndicator": null
+            }
+          ],
+          "contactMethods": [
+            {
+              "type": "",
+              "category": "",
+              "dataValue": "",
+              "extraData": null,
+              "externalId": null,
+              "optOut": null,
+              "sourceDate": null,
+              "isPrimary": null,
+              "confirmation": null,
+              "inactiveDate": null,
+              "optOutMarketing": null,
+              "optOutDate": null
+            }
+          ],
+          "actionComments": [
+            {
+              "commentType": "",
+              "commentTitle": null,
+              "commentClass": null,
+              "comment": null,
+              "actionType": null,
+              "actionDate": null,
+              "inactiveDate": null,
+              "guestViewable": null,
+              "externalID": null,
+              "creatorCode": null,
+              "dateCommentCreated": null,
+              "resortCode": null
+            }
+          ],
+          "specialRequests": [
+            {
+              "requestType": null,
+              "requestCode": null,
+              "requestComments": null,
+              "resortField": null,
+              "actionTypeCode": null,
+              "actionType": null,
+              "externalID": null,
+              "inactiveDate": null
+            }
+          ],
+          "udfDataCollection": [
+            {
+              "cendynPropertyID": "",
+              "moduleName": "",
+              "tableName": "",
+              "columnName": "",
+              "udfValue": ""
+            }
+          ],
+          "lead": {
+            "fK_Reservation": null,
+            "externalLeadID": null,
+            "externalLeadSource": null,
+            "leadStatus": null,
+            "leadAcquired": null,
+            "tentativeStartDate": null,
+            "tentativeEndDate": null,
+            "assignedAgent": null,
+            "assignedDate": null,
+            "contactMethod": null,
+            "contactAgent": null,
+            "contactDate": null,
+            "lastFollowupMethod": null,
+            "lastFollowupAgent": null,
+            "lastFollowupDate": null,
+            "bookingMethod": null,
+            "bookingAgent": null,
+            "bookingDate": null,
+            "reasonforStay": null,
+            "marketCode": null,
+            "campaignCode": null,
+            "campaignName": null,
+            "priceEstimate": null,
+            "flaggedForAttention": null
+          },
+          "relatedTravelers": [
+            {
+              "cendynPropertyID": null,
+              "propertyName": null,
+              "uniqueIDs": [
+                {
+                  "id": "",
+                  "type": "",
+                  "context": null
+                }
+              ],
+              "salutation": null,
+              "firstName": null,
+              "familiarName": null,
+              "middleName": null,
+              "lastName": null,
+              "fullName": null,
+              "suffix": null,
+              "relation": null,
+              "isPrimary": null
+            }
+          ],
+          "documents": [
+            {
+              "documentID": null,
+              "documentType": null,
+              "documentSource": null,
+              "codeOnDocument": null,
+              "documentNotes": null,
+              "nameOnDocument": null,
+              "nationalityOnDocument": null,
+              "effectiveDate": null,
+              "expirationDate": null,
+              "issuer": null,
+              "issuerCountry": null,
+              "isPrimary": null,
+              "piI_StoredAs": null,
+              "inactiveDate": null
+            }
+          ],
+          "vouchers": [
+            {
+              "hotelCode": null,
+              "voucherID": null,
+              "voucherID2": null,
+              "appliedToResort": null,
+              "reservationID": null,
+              "profileIDRecipient": null,
+              "subscriberIDRecipient": null,
+              "recipientName": null,
+              "emailaddress": null,
+              "profileIDPurchaser": null,
+              "purchaserName": null,
+              "voucherStatus": null,
+              "voucherType": null,
+              "membershipType": null,
+              "certCode": null,
+              "certNo": null,
+              "shortDescription": null,
+              "giftMessage": null,
+              "comments": null,
+              "voucherAmount": null,
+              "currencyCode": null,
+              "issueType": null,
+              "dateConsumed": null,
+              "expirationDate": null,
+              "awardPoints": null,
+              "ruleType": null,
+              "ruleValue": null,
+              "cancelAllowed": null,
+              "maxExtensions": null,
+              "referenceType": null,
+              "referenceID": null,
+              "promotionCode": null,
+              "reservationConsumed": null,
+              "webConsumed": null,
+              "pmsConsumed": null,
+              "verifyCertNo": null,
+              "generateInLieu": null,
+              "creatorCode": null,
+              "lastUpdaterCode": null,
+              "folioID": null,
+              "inactiveDate": null
+            }
+          ],
+          "profilePolicies": [
+            {
+              "policyType": "",
+              "attributeName": "",
+              "integerValue": null,
+              "stringValue": null,
+              "effectiveDate": null,
+              "expirationDate": null,
+              "comments": null,
+              "externalID": null,
+              "appliesTo": null,
+              "appliesToDescriptor": null
+            }
+          ]
+        },
+        "externalReferences": [
+          {
+            "referenceType": "",
+            "referenceSource": null,
+            "referenceNumber": "",
+            "legNumber": null
+          }
+        ],
+        "activities": [
+          {
+            "cendynPropertyID": "",
+            "reservationID": null,
+            "profileID": null,
+            "activityStatus": "",
+            "activityCategory": null,
+            "activityID1": "",
+            "activitySource1": null,
+            "activityID2": null,
+            "activitySource2": null,
+            "activityName": "",
+            "activityDescription": null,
+            "activityNotes": null,
+            "groupCode": null,
+            "currencyCode": null,
+            "amount": null,
+            "depositRequired": null,
+            "depositCollectorType": null,
+            "inactiveDate": null,
+            "urlLink": null,
+            "confirmationNum": null,
+            "activityClass": null,
+            "activityCode": null,
+            "activitySubCode": null,
+            "languageCode": null,
+            "numAdults": 1,
+            "numYouths": null,
+            "numChildren": null,
+            "startDate": "",
+            "startTaskType": null,
+            "startLocationCode": null,
+            "startLocationName": null,
+            "endDate": null,
+            "endTaskType": null,
+            "endLocationCode": null,
+            "durationUnit": null,
+            "relatedDate": null,
+            "relatedType": null,
+            "relatedLocationCode": null,
+            "relatedDescription": null,
+            "vipCode": null,
+            "assignedUser": null,
+            "bookedDate": null,
+            "bookedBy": null,
+            "lastUpdatedDate": null,
+            "lastUpdatedBy": null,
+            "cancellationCode": null,
+            "customField1": null,
+            "customField2": null,
+            "customField3": null,
+            "customField4": null,
+            "customField5": null
+          }
+        ],
+        "udfDataCollection": [
+          {
+            "cendynPropertyID": "",
+            "moduleName": "",
+            "tableName": "",
+            "columnName": "",
+            "udfValue": ""
+          }
+        ]
+      }
+    ],
+    "stayHeaders": [
+      {
+        "stayBeginDate": "",
+        "stayEndDate": "",
+        "buildingCode": null,
+        "roomNumber": null,
+        "roomType": "",
+        "marketSegmentCode": null,
+        "resSourceCode": null,
+        "shareCode": null,
+        "invBlockCode": null,
+        "resStatusType": null,
+        "rtc": null,
+        "channelCode": null,
+        "externalID": null,
+        "sourceSequence": null,
+        "rateType": "",
+        "rateCategory": null,
+        "currencyCode": null,
+        "promotionCode": null,
+        "stayDetails": [
+          {
+            "stayDate": "",
+            "roomNumber": null,
+            "roomType": "",
+            "rateType": null,
+            "marketCode": null,
+            "resSourceCode": null,
+            "numberOfRooms": 1,
+            "dailyRate": 1,
+            "currencyCode": null,
+            "dateStayDetailUpdated": null,
+            "dailyRateBeforeTax": null,
+            "dailyRateAfterTax": null,
+            "roomRevenue": null,
+            "externalID": null,
+            "taxTypes": [
+              {
+                "amount": 1,
+                "code": null,
+                "description": null
+              }
+            ]
+          }
+        ],
+        "cancelPenalties": [
+          {
+            "ruleType": "",
+            "ruleCode": null,
+            "ruleDescription": null,
+            "resortRuleID": null,
+            "ruleID": null,
+            "amount": null,
+            "percentage": null,
+            "cancelByDate": null,
+            "cancelPercentDue": null,
+            "cancelRoomNights": null,
+            "activityDeposit": null,
+            "roomDeposit": null,
+            "ruleScope": null,
+            "currencyCode": null
+          }
+        ],
+        "resServices": [
+          {
+            "serviceType": "",
+            "serviceGroup": null,
+            "resAction": null,
+            "servicePricingType": null,
+            "serviceSequence": null,
+            "serviceInventoryCode": null,
+            "startDate": null,
+            "endDate": null,
+            "frequency": null,
+            "priceAmount": null,
+            "currencyCode": null,
+            "quantity": null,
+            "ratePlanCode": null,
+            "inventoryBlockCode": null,
+            "priceGuaranteed": null,
+            "inclusive": null,
+            "serviceComments": null,
+            "externalID": null,
+            "inactiveDate": null,
+            "servicePrices": [
+              {
+                "externalID": null,
+                "actualBeginDate": null,
+                "actualEndDate": null,
+                "unitPrice": 1
+              }
+            ],
+            "unitPrice": null
+          }
+        ],
+        "payInfoCollection": [
+          {
+            "recordType": null,
+            "methodTypeCode": null,
+            "methodType": null,
+            "dueDate": null,
+            "amount": null,
+            "currencyCode": null,
+            "cancelIfNotReceived": null,
+            "dropTime": null,
+            "comments": null,
+            "guaranteeDescription": null
+          }
+        ],
+        "fixedCharges": [
+          {
+            "chargeCode": null,
+            "chargeName": null,
+            "description": null,
+            "frequency": null,
+            "chargeUnit": 1,
+            "chargeType": null,
+            "currencyCode": null,
+            "amount": 1,
+            "taxInclusive": null,
+            "taxAmount": null,
+            "percentage": null,
+            "effectiveDate": null,
+            "expirationDate": null,
+            "taxable": null,
+            "customCode1": null,
+            "customCode2": null,
+            "customCode3": null,
+            "inactiveDate": null
+          }
+        ]
+      }
+    ],
+    "actionComments": [
+      {
+        "commentType": "",
+        "commentTitle": null,
+        "commentClass": null,
+        "comment": null,
+        "actionType": null,
+        "actionDate": null,
+        "inactiveDate": null,
+        "guestViewable": null,
+        "externalID": null,
+        "creatorCode": null,
+        "dateCommentCreated": null,
+        "resortCode": null
+      }
+    ],
+    "specialRequests": [
+      {
+        "requestType": null,
+        "requestCode": null,
+        "requestComments": null,
+        "resortField": null,
+        "actionTypeCode": null,
+        "actionType": null,
+        "externalID": null,
+        "inactiveDate": null
+      }
+    ],
+    "udfDataCollection": [
+      {
+        "cendynPropertyID": "",
+        "moduleName": "",
+        "tableName": "",
+        "columnName": "",
+        "udfValue": ""
+      }
+    ],
+    "taxTypes": [
+      {
+        "amount": 1,
+        "code": null,
+        "description": null
+      }
+    ],
+    "stayHistoryRevenueCollection": [
+      {
+        "recordStatus": null,
+        "revenueGroup": null,
+        "revenueType": null,
+        "amount": 1,
+        "currencyCode": null,
+        "folioWindow": null,
+        "transactionDate": null,
+        "inactiveDate": null
+      }
+    ],
+    "resServices": [
+      {
+        "serviceType": "",
+        "serviceGroup": null,
+        "resAction": null,
+        "servicePricingType": null,
+        "serviceSequence": null,
+        "serviceInventoryCode": null,
+        "startDate": null,
+        "endDate": null,
+        "frequency": null,
+        "priceAmount": null,
+        "currencyCode": null,
+        "quantity": null,
+        "ratePlanCode": null,
+        "inventoryBlockCode": null,
+        "priceGuaranteed": null,
+        "inclusive": null,
+        "serviceComments": null,
+        "externalID": null,
+        "inactiveDate": null,
+        "servicePrices": [
+          {
+            "externalID": null,
+            "actualBeginDate": null,
+            "actualEndDate": null,
+            "unitPrice": 1
+          }
+        ],
+        "unitPrice": null
+      }
+    ],
+    "externalReferences": [
+      {
+        "referenceType": "",
+        "referenceSource": null,
+        "referenceNumber": "",
+        "legNumber": null
+      }
+    ],
+    "paymentMethods": [
+      {
+        "methodOfPayment": "",
+        "folioID": null,
+        "paymentCards": [
+          {
+            "cardType": "",
+            "cardHolderName": null,
+            "cardValue": null,
+            "expirationDate": null,
+            "securityCode": null,
+            "isPrimary": null
+          }
+        ]
+      }
+    ],
+    "resActions": [
+      {
+        "externalID": null,
+        "resActionTypeID": null,
+        "resActionType": null,
+        "sourceResAction": null,
+        "resActionText": null,
+        "resActionBy": null,
+        "resActionDate": null,
+        "inactiveDate": null
+      }
+    ],
+    "children": [
+      {
+        "name": null,
+        "age": null
+      }
+    ]
+  }
+]'

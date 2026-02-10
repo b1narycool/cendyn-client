@@ -1,0 +1,387 @@
+Retrieves Profile resources based on the provided profile Request and Query type.​#Copy link to "Retrieves Profile resources based on the provided profile Request and Query type."
+
+In addition to accountId and cendynPropertyId, one of the following is required: Id, MembershipId, EmailAddress, LastName, FirstName, PhoneNumber.
+The search can be further filtered by including the CendynPropertyId or the Start and/or End date. Date filters will be applied to the Last Modified Date.
+
+### Path Parameters
+
+accountId
+integer
+int32
+min: 
+1
+max: 
+2147483647
+required
+
+queryType
+integer
+int32
+enum
+required
+The query type specifying the nature of profile retrieval.
+ProfileID
+Name
+LastUpdated
+Email
+MembershipID
+PhoneNumber
+
+### Query Parameters
+
+CendynPropertyId
+integer
+int32
+The Cendyn property ID
+Id
+string
+The primary Profile ID
+MembershipID
+string
+EmailAddress
+string
+LastName
+string
+FirstName
+string
+PhoneNumber
+string
+StartDate
+string
+date-time
+The first date in the range of LastUpdated dates, when QueryType is LastUpdated
+EndDate
+string
+date-time
+The last date in the range of LastUpdated dates, when QueryType is LastUpdated
+PageSize
+integer
+int32
+min: 
+1
+max: 
+2147483647
+default: 
+10
+required
+The number of records per request
+PageNumber
+integer
+int32
+min: 
+1
+max: 
+2147483647
+default: 
+1
+required
+The starting page number, or offset, for the request
+
+
+### Example
+
+curl 'https://int-cencloud-web-api-qa01-eus2-hudpecdagceyc8be.eastus2-01.azurewebsites.net/api/v1/accounts//inbound/profiles/?PageSize=10&PageNumber=1' \
+  --header 'Accept: */*'
+
+[
+  {
+    "cendynPropertyID": "…",
+    "propertyName": "…",
+    "uniqueIDs": [
+      {
+        "id": "…",
+        "type": "…",
+        "context": "…"
+      }
+    ],
+    "profileTypeCode": "…",
+    "profileTypeDescription": "…",
+    "nameCode": "…",
+    "profileTypeCategory": "…",
+    "jobTitle": "…",
+    "salutation": "…",
+    "firstName": "…",
+    "familiarName": "…",
+    "middleName": "…",
+    "lastName": "…",
+    "fullName": "…",
+    "nameSuffix": "…",
+    "vipid": "…",
+    "vipCode": "…",
+    "primaryLanguage": "…",
+    "genderCode": "…",
+    "dobYear": "…",
+    "dobMonth": "…",
+    "dobDayOfMonth": "…",
+    "companyName": "…",
+    "arNumber": "…",
+    "allowMail": true,
+    "allowEMail": true,
+    "guestPriv": true,
+    "allowPhone": true,
+    "allowSMS": true,
+    "allowHistory": true,
+    "allowMarketResearch": true,
+    "allowThirdParty": true,
+    "allowLoyaltyProgram": true,
+    "creatorCode": "…",
+    "lastUpdaterCode": "…",
+    "dateProfileCreated": "2026-02-06T13:28:06.938Z",
+    "dateProfileUpdated": "2026-02-06T13:28:06.938Z",
+    "inactiveDate": "2026-02-06T13:28:06.938Z",
+    "nationality": "…",
+    "resortCode": "…",
+    "retiredProfileId": "…",
+    "transferredSubscriptionId": "…",
+    "sourceName": "…",
+    "sourceID": "…",
+    "optOutMarketing": true,
+    "optOutDate": "2026-02-06T13:28:06.938Z",
+    "profileExtension": {
+      "languageCode": "…",
+      "salutationExt": "…",
+      "firstNameExt": "…",
+      "familiarNameExt": "…",
+      "middleNameExt": "…",
+      "lastNameExt": "…",
+      "nameSuffixExt": "…",
+      "companyNameExt": "…",
+      "blacklist": "…",
+      "blackListMessage": "…",
+      "anonymizationStatus": "…",
+      "priorityCode": "…",
+      "roomsPotential": "…",
+      "salesScope": "…",
+      "scopeCity": "…",
+      "actionCode": "…",
+      "businessSegment": "…",
+      "accountType": "…",
+      "salesSource": "…",
+      "industryCode": "…",
+      "competitionCode": "…",
+      "influenceCode": "…"
+    },
+    "addresses": [
+      {
+        "addressTypeCode": "…",
+        "addressTypeDescription": "…",
+        "addressStatus": "…",
+        "externalId": "…",
+        "attn": "…",
+        "address1": "…",
+        "address2": "…",
+        "city": "…",
+        "stateProvince": "…",
+        "postalCode": "…",
+        "countryCode": "…",
+        "isPrimary": true,
+        "addressLanguage": "…",
+        "addressCleansed": true,
+        "optOutMarketing": true,
+        "optOutDate": "2026-02-06T13:28:06.938Z"
+      }
+    ],
+    "memberships": [
+      {
+        "programCode": "…",
+        "membershipID": "…",
+        "membershipCategory": "…",
+        "membershipName": "…",
+        "membershipLevel": "…",
+        "membershipStatus": "…",
+        "enrollmentCode": "…",
+        "dateMembershipStarts": "2026-02-06T13:28:06.938Z",
+        "dateMembershipExpires": "2026-02-06T13:28:06.938Z",
+        "totalStays": 1,
+        "awardCredits": 1,
+        "awardAvailable": 1,
+        "primaryAirline": true,
+        "displaySequence": 1,
+        "externalID": "…",
+        "sourceName": "…",
+        "sourceID": "…",
+        "isActive": true,
+        "inactiveDate": "2026-02-06T13:28:06.938Z",
+        "pointsIndicator": true
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "…",
+        "category": "…",
+        "dataValue": "…",
+        "extraData": "…",
+        "externalId": "…",
+        "optOut": true,
+        "sourceDate": "2026-02-06T13:28:06.938Z",
+        "isPrimary": true,
+        "confirmation": true,
+        "inactiveDate": "2026-02-06T13:28:06.938Z",
+        "optOutMarketing": true,
+        "optOutDate": "2026-02-06T13:28:06.938Z"
+      }
+    ],
+    "actionComments": [
+      {
+        "commentType": "…",
+        "commentTitle": "…",
+        "commentClass": "…",
+        "comment": "…",
+        "actionType": "…",
+        "actionDate": "2026-02-06T13:28:06.938Z",
+        "inactiveDate": "2026-02-06T13:28:06.938Z",
+        "guestViewable": true,
+        "externalID": "…",
+        "creatorCode": "…",
+        "dateCommentCreated": "2026-02-06T13:28:06.938Z",
+        "resortCode": "…"
+      }
+    ],
+    "specialRequests": [
+      {
+        "requestType": "…",
+        "requestCode": "…",
+        "requestComments": "…",
+        "resortField": "…",
+        "actionTypeCode": "…",
+        "actionType": "…",
+        "externalID": "…",
+        "inactiveDate": "2026-02-06T13:28:06.938Z"
+      }
+    ],
+    "udfDataCollection": [
+      {
+        "cendynPropertyID": "…",
+        "moduleName": "…",
+        "tableName": "…",
+        "columnName": "…",
+        "udfValue": "…"
+      }
+    ],
+    "lead": {
+      "fK_Reservation": "123e4567-e89b-12d3-a456-426614174000",
+      "externalLeadID": "…",
+      "externalLeadSource": "…",
+      "leadStatus": "…",
+      "leadAcquired": "2026-02-06T13:28:06.938Z",
+      "tentativeStartDate": "2026-02-06T13:28:06.938Z",
+      "tentativeEndDate": "2026-02-06T13:28:06.938Z",
+      "assignedAgent": "…",
+      "assignedDate": "2026-02-06T13:28:06.938Z",
+      "contactMethod": "…",
+      "contactAgent": "…",
+      "contactDate": "2026-02-06T13:28:06.938Z",
+      "lastFollowupMethod": "…",
+      "lastFollowupAgent": "…",
+      "lastFollowupDate": "2026-02-06T13:28:06.938Z",
+      "bookingMethod": "…",
+      "bookingAgent": "…",
+      "bookingDate": "2026-02-06T13:28:06.938Z",
+      "reasonforStay": "…",
+      "marketCode": "…",
+      "campaignCode": "…",
+      "campaignName": "…",
+      "priceEstimate": 1,
+      "flaggedForAttention": true
+    },
+    "relatedTravelers": [
+      {
+        "cendynPropertyID": "…",
+        "propertyName": "…",
+        "uniqueIDs": [
+          {
+            "id": "…",
+            "type": "…",
+            "context": "…"
+          }
+        ],
+        "salutation": "…",
+        "firstName": "…",
+        "familiarName": "…",
+        "middleName": "…",
+        "lastName": "…",
+        "fullName": "…",
+        "suffix": "…",
+        "relation": "…",
+        "isPrimary": true
+      }
+    ],
+    "documents": [
+      {
+        "documentID": "…",
+        "documentType": "…",
+        "documentSource": "…",
+        "codeOnDocument": "…",
+        "documentNotes": "…",
+        "nameOnDocument": "…",
+        "nationalityOnDocument": "…",
+        "effectiveDate": "2026-02-06T13:28:06.938Z",
+        "expirationDate": "2026-02-06T13:28:06.938Z",
+        "issuer": "…",
+        "issuerCountry": "…",
+        "isPrimary": true,
+        "piI_StoredAs": "…",
+        "inactiveDate": "2026-02-06T13:28:06.938Z"
+      }
+    ],
+    "vouchers": [
+      {
+        "hotelCode": "…",
+        "voucherID": "…",
+        "voucherID2": "…",
+        "appliedToResort": "…",
+        "reservationID": "…",
+        "profileIDRecipient": "…",
+        "subscriberIDRecipient": "…",
+        "recipientName": "…",
+        "emailaddress": "…",
+        "profileIDPurchaser": "…",
+        "purchaserName": "…",
+        "voucherStatus": "…",
+        "voucherType": "…",
+        "membershipType": "…",
+        "certCode": "…",
+        "certNo": "…",
+        "shortDescription": "…",
+        "giftMessage": "…",
+        "comments": "…",
+        "voucherAmount": 1,
+        "currencyCode": "…",
+        "issueType": "…",
+        "dateConsumed": "2026-02-06T13:28:06.938Z",
+        "expirationDate": "2026-02-06T13:28:06.938Z",
+        "awardPoints": 1,
+        "ruleType": "…",
+        "ruleValue": "…",
+        "cancelAllowed": true,
+        "maxExtensions": 1,
+        "referenceType": "…",
+        "referenceID": "…",
+        "promotionCode": "…",
+        "reservationConsumed": true,
+        "webConsumed": true,
+        "pmsConsumed": true,
+        "verifyCertNo": true,
+        "generateInLieu": true,
+        "creatorCode": "…",
+        "lastUpdaterCode": "…",
+        "folioID": "…",
+        "inactiveDate": "2026-02-06T13:28:06.938Z"
+      }
+    ],
+    "profilePolicies": [
+      {
+        "policyType": "…",
+        "attributeName": "…",
+        "integerValue": 1,
+        "stringValue": "…",
+        "effectiveDate": "2026-02-06T13:28:06.938Z",
+        "expirationDate": "2026-02-06T13:28:06.938Z",
+        "comments": "…",
+        "externalID": "…",
+        "appliesTo": "…",
+        "appliesToDescriptor": "…"
+      }
+    ]
+  }
+]

@@ -1,0 +1,363 @@
+Creates or updates Profile records asynchronously.​
+
+###
+Path Parameters
+
+accountId
+integer
+int32
+min: 
+1
+max: 
+2147483647
+required
+The account Id
+
+###
+Body
+
+Body
+application/json
+
+A list of Profile resource records
+array object[]
+The Profile model is used to define a person, travel agent, or company associated with a property.
+
+cendynPropertyID
+string
+min: 
+1
+required
+The Cendyn property ID where the profile is listed.
+
+uniqueIDs
+array object[]
+required
+A set of ID values that uniquely identify the profile record.
+The UniqueIDType is a class to define an identifier used by Reservations, Profiles, and other entities
+
+profileTypeCode
+string
+max: 
+1
+required
+A single-character type code for the profile: Individual (I), Group (G), Travel Agent (T), Company (C), or Wholesaler (W).
+
+
+lastName
+string
+min: 
+1
+required
+The last name, or sur name, if the profile is an Individual, or the primary name if the profile is a company.
+
+
+### 
+Example
+
+curl https://int-cencloud-web-api-qa01-eus2-hudpecdagceyc8be.eastus2-01.azurewebsites.net/api/v1/accounts//inbound/profiles \
+  --request POST \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/json' \
+  --data '[
+  {
+    "cendynPropertyID": "",
+    "propertyName": null,
+    "uniqueIDs": [
+      {
+        "id": "",
+        "type": "",
+        "context": null
+      }
+    ],
+    "profileTypeCode": "",
+    "profileTypeDescription": null,
+    "nameCode": null,
+    "profileTypeCategory": null,
+    "jobTitle": null,
+    "salutation": null,
+    "firstName": null,
+    "familiarName": null,
+    "middleName": null,
+    "lastName": "",
+    "fullName": null,
+    "nameSuffix": null,
+    "vipid": null,
+    "vipCode": null,
+    "primaryLanguage": null,
+    "genderCode": null,
+    "dobYear": null,
+    "dobMonth": null,
+    "dobDayOfMonth": null,
+    "companyName": null,
+    "arNumber": null,
+    "allowMail": null,
+    "allowEMail": null,
+    "guestPriv": null,
+    "allowPhone": null,
+    "allowSMS": null,
+    "allowHistory": null,
+    "allowMarketResearch": null,
+    "allowThirdParty": null,
+    "allowLoyaltyProgram": null,
+    "creatorCode": null,
+    "lastUpdaterCode": null,
+    "dateProfileCreated": null,
+    "dateProfileUpdated": null,
+    "inactiveDate": null,
+    "nationality": null,
+    "resortCode": null,
+    "retiredProfileId": null,
+    "transferredSubscriptionId": null,
+    "sourceName": null,
+    "sourceID": null,
+    "optOutMarketing": null,
+    "optOutDate": null,
+    "profileExtension": {
+      "languageCode": null,
+      "salutationExt": null,
+      "firstNameExt": null,
+      "familiarNameExt": null,
+      "middleNameExt": null,
+      "lastNameExt": null,
+      "nameSuffixExt": null,
+      "companyNameExt": null,
+      "blacklist": null,
+      "blackListMessage": null,
+      "anonymizationStatus": null,
+      "priorityCode": null,
+      "roomsPotential": null,
+      "salesScope": null,
+      "scopeCity": null,
+      "actionCode": null,
+      "businessSegment": null,
+      "accountType": null,
+      "salesSource": null,
+      "industryCode": null,
+      "competitionCode": null,
+      "influenceCode": null
+    },
+    "addresses": [
+      {
+        "addressTypeCode": "",
+        "addressTypeDescription": null,
+        "addressStatus": null,
+        "externalId": null,
+        "attn": null,
+        "address1": null,
+        "address2": null,
+        "city": null,
+        "stateProvince": null,
+        "postalCode": null,
+        "countryCode": null,
+        "isPrimary": null,
+        "addressLanguage": null,
+        "addressCleansed": null,
+        "optOutMarketing": null,
+        "optOutDate": null
+      }
+    ],
+    "memberships": [
+      {
+        "programCode": "",
+        "membershipID": "",
+        "membershipCategory": null,
+        "membershipName": null,
+        "membershipLevel": null,
+        "membershipStatus": null,
+        "enrollmentCode": null,
+        "dateMembershipStarts": null,
+        "dateMembershipExpires": null,
+        "totalStays": null,
+        "awardCredits": null,
+        "awardAvailable": null,
+        "primaryAirline": null,
+        "displaySequence": null,
+        "externalID": null,
+        "sourceName": null,
+        "sourceID": null,
+        "isActive": true,
+        "inactiveDate": null,
+        "pointsIndicator": null
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "",
+        "category": "",
+        "dataValue": "",
+        "extraData": null,
+        "externalId": null,
+        "optOut": null,
+        "sourceDate": null,
+        "isPrimary": null,
+        "confirmation": null,
+        "inactiveDate": null,
+        "optOutMarketing": null,
+        "optOutDate": null
+      }
+    ],
+    "actionComments": [
+      {
+        "commentType": "",
+        "commentTitle": null,
+        "commentClass": null,
+        "comment": null,
+        "actionType": null,
+        "actionDate": null,
+        "inactiveDate": null,
+        "guestViewable": null,
+        "externalID": null,
+        "creatorCode": null,
+        "dateCommentCreated": null,
+        "resortCode": null
+      }
+    ],
+    "specialRequests": [
+      {
+        "requestType": null,
+        "requestCode": null,
+        "requestComments": null,
+        "resortField": null,
+        "actionTypeCode": null,
+        "actionType": null,
+        "externalID": null,
+        "inactiveDate": null
+      }
+    ],
+    "udfDataCollection": [
+      {
+        "cendynPropertyID": "",
+        "moduleName": "",
+        "tableName": "",
+        "columnName": "",
+        "udfValue": ""
+      }
+    ],
+    "lead": {
+      "fK_Reservation": null,
+      "externalLeadID": null,
+      "externalLeadSource": null,
+      "leadStatus": null,
+      "leadAcquired": null,
+      "tentativeStartDate": null,
+      "tentativeEndDate": null,
+      "assignedAgent": null,
+      "assignedDate": null,
+      "contactMethod": null,
+      "contactAgent": null,
+      "contactDate": null,
+      "lastFollowupMethod": null,
+      "lastFollowupAgent": null,
+      "lastFollowupDate": null,
+      "bookingMethod": null,
+      "bookingAgent": null,
+      "bookingDate": null,
+      "reasonforStay": null,
+      "marketCode": null,
+      "campaignCode": null,
+      "campaignName": null,
+      "priceEstimate": null,
+      "flaggedForAttention": null
+    },
+    "relatedTravelers": [
+      {
+        "cendynPropertyID": null,
+        "propertyName": null,
+        "uniqueIDs": [
+          {
+            "id": "",
+            "type": "",
+            "context": null
+          }
+        ],
+        "salutation": null,
+        "firstName": null,
+        "familiarName": null,
+        "middleName": null,
+        "lastName": null,
+        "fullName": null,
+        "suffix": null,
+        "relation": null,
+        "isPrimary": null
+      }
+    ],
+    "documents": [
+      {
+        "documentID": null,
+        "documentType": null,
+        "documentSource": null,
+        "codeOnDocument": null,
+        "documentNotes": null,
+        "nameOnDocument": null,
+        "nationalityOnDocument": null,
+        "effectiveDate": null,
+        "expirationDate": null,
+        "issuer": null,
+        "issuerCountry": null,
+        "isPrimary": null,
+        "piI_StoredAs": null,
+        "inactiveDate": null
+      }
+    ],
+    "vouchers": [
+      {
+        "hotelCode": null,
+        "voucherID": null,
+        "voucherID2": null,
+        "appliedToResort": null,
+        "reservationID": null,
+        "profileIDRecipient": null,
+        "subscriberIDRecipient": null,
+        "recipientName": null,
+        "emailaddress": null,
+        "profileIDPurchaser": null,
+        "purchaserName": null,
+        "voucherStatus": null,
+        "voucherType": null,
+        "membershipType": null,
+        "certCode": null,
+        "certNo": null,
+        "shortDescription": null,
+        "giftMessage": null,
+        "comments": null,
+        "voucherAmount": null,
+        "currencyCode": null,
+        "issueType": null,
+        "dateConsumed": null,
+        "expirationDate": null,
+        "awardPoints": null,
+        "ruleType": null,
+        "ruleValue": null,
+        "cancelAllowed": null,
+        "maxExtensions": null,
+        "referenceType": null,
+        "referenceID": null,
+        "promotionCode": null,
+        "reservationConsumed": null,
+        "webConsumed": null,
+        "pmsConsumed": null,
+        "verifyCertNo": null,
+        "generateInLieu": null,
+        "creatorCode": null,
+        "lastUpdaterCode": null,
+        "folioID": null,
+        "inactiveDate": null
+      }
+    ],
+    "profilePolicies": [
+      {
+        "policyType": "",
+        "attributeName": "",
+        "integerValue": null,
+        "stringValue": null,
+        "effectiveDate": null,
+        "expirationDate": null,
+        "comments": null,
+        "externalID": null,
+        "appliesTo": null,
+        "appliesToDescriptor": null
+      }
+    ]
+  }
+]'

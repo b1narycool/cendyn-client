@@ -1,0 +1,11 @@
+# @name authenticate
+
+POST {{$dotenv host}}{{$dotenv url}}
+Accept: */*
+Content-Type: application/json
+
+{
+  "clientId": "{{$dotenv clientId}}",
+  "clientSecret": "{{$dotenv clientSecret}}"
+}
+###

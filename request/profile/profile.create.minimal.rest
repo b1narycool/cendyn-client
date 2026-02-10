@@ -1,0 +1,32 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Create Profile - Minimal Required Fields
+# @name createProfileMinimal
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "PROFILE-MIN-002",
+        "type": "PMS"
+      }
+    ],
+    "profileTypeCode": "I",
+    "lastName": "Johnson",
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "PERSONAL",
+        "dataValue": "johnson@example.com"
+      }
+    ]
+  }
+]
+###

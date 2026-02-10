@@ -1,0 +1,51 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Create Profile - Company
+# @name createProfileCompany
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "COMPANY-001",
+        "type": "PMS"
+      }
+    ],
+    "profileTypeCode": "C",
+    "lastName": "Acme Corporation",
+    "companyName": "Acme Corporation",
+    "addresses": [
+      {
+        "addressTypeCode": "BUSINESS",
+        "address1": "100 Business Park Drive",
+        "city": "Chicago",
+        "stateProvince": "IL",
+        "postalCode": "60601",
+        "countryCode": "US",
+        "isPrimary": true
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "BUSINESS",
+        "dataValue": "contact@acmecorp.com",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "BUSINESS",
+        "dataValue": "+1-312-555-0100",
+        "isPrimary": true
+      }
+    ]
+  }
+]
+###

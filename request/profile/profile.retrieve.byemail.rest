@@ -1,0 +1,12 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profile by Email
+# @name getProfileByEmail
+# QueryType: 3 = Email
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/3?EmailAddress=john.doe@example.com&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

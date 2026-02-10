@@ -1,0 +1,94 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+
+### Create Profile - Individual with Full Details
+# @name createProfileFull
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "PROFILE-002",
+        "type": "PMS"
+      }
+    ],
+    "profileTypeCode": "I",
+    "firstName": "John",
+    "lastName": "Doe",
+    "middleName": "Paul",
+    "salutation": "Mr.",
+    "genderCode": "M",
+    "primaryLanguage": "EN",
+    "nationality": "US",
+    "dobYear": "1985",
+    "dobMonth": "06",
+    "dobDayOfMonth": "15",
+    "addresses": [
+      {
+        "addressTypeCode": "HOME",
+        "address1": "123 Main Street",
+        "address2": "Apt 12B",
+        "city": "Los Angeles",
+        "stateProvince": "CA",
+        "postalCode": "90001",
+        "countryCode": "US",
+        "isPrimary": true
+      },
+      {
+        "addressTypeCode": "BUSINESS",
+        "address1": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "stateProvince": "CA",
+        "postalCode": "90002",
+        "countryCode": "US",
+        "isPrimary": false
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "PERSONAL",
+        "dataValue": "john.doe@example.com",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "MOBILE",
+        "dataValue": "+1-555-9876",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "BUSINESS",
+        "dataValue": "+1-555-0123",
+        "isPrimary": false
+      }
+    ],
+    "memberships": [
+      {
+        "programCode": "REWARDS",
+        "membershipID": "GOLD789456",
+        "membershipLevel": "GOLD",
+        "membershipStatus": "ACTIVE",
+        "isActive": true
+      }
+    ],
+    "actionComments": [
+      {
+        "commentType": "PREFERENCE",
+        "comment": "Prefers high floor, non-smoking room with ocean view",
+        "guestViewable": true
+      }
+    ]
+  }
+]
+
+###

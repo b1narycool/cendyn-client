@@ -1,0 +1,13 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profile by ID
+# @name getProfileById
+# QueryType: 0 = ProfileID
+# Note: Id should be the PMS ID from uniqueIDs, not the Cendyn internal recordID
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/0?CendynPropertyId={{propertyID}}&Id=PROFILE-002&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

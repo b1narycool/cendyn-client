@@ -1,0 +1,764 @@
+Retrieves a single Reservation based on the reservation ID and property.​
+
+###
+Path Parameters
+
+accountId
+integer
+int32
+min: 
+1
+max: 
+2147483647
+required
+
+###
+Query Parameters
+
+cendynPropertyId
+integer
+int32
+The CendynPropertyId for the property. Optional if the reservationID is unique for the tenant identified by the accountId.
+
+reservationID
+string
+The Reservation ID string that uniquely identifies the reservation for the property or account.
+
+###
+Example:
+curl https://int-cencloud-web-api-qa01-eus2-hudpecdagceyc8be.eastus2-01.azurewebsites.net/api/v1/accounts//inbound/reservations \
+  --header 'Accept: */*'
+
+## Response
+{
+  "cendynPropertyID": "…",
+  "propertyName": "…",
+  "uniqueIDs": [
+    {
+      "id": "…",
+      "type": "…",
+      "context": "…"
+    }
+  ],
+  "resTypeCode": "…",
+  "resStatusCode": "…",
+  "resStatus": "…",
+  "confirmationNum": "…",
+  "centralResNum": "…",
+  "resArriveDate": "2026-02-06T13:28:06.938Z",
+  "resDepartDate": "2026-02-06T13:28:06.938Z",
+  "resArriveTime": "…",
+  "resDepartTime": "…",
+  "numRooms": 1,
+  "buildingCode": "…",
+  "roomTypeCode": "…",
+  "roomNumber": "…",
+  "rateCode": "…",
+  "rateCategoryCode": "…",
+  "rateAmount": 1,
+  "rateConfidential": true,
+  "packageCode": "…",
+  "packageAmount": 1,
+  "packageDescription": "…",
+  "discountCode": "…",
+  "discountAmount": 1,
+  "discountPercent": 1,
+  "discountReasonCode": "…",
+  "guaranteedByCode": "…",
+  "mop": "…",
+  "isNotRefundable": true,
+  "sharerCode": "…",
+  "legNumbers": "…",
+  "groupID": "…",
+  "groupName": "…",
+  "resSourceCode": "…",
+  "resSourceCategory": "…",
+  "trvlAgntPmsID": "…",
+  "trvlAgntCode": "…",
+  "trvlAgntIATA": "…",
+  "trvlAgntName": "…",
+  "marketSegmentCode": "…",
+  "marketCodeCategory": "…",
+  "marketRegionCode": "…",
+  "companyCode": "…",
+  "companyName": "…",
+  "billingCode": "…",
+  "billingName": "…",
+  "customerSegment": "…",
+  "numAdults": 1,
+  "numYouths": 1,
+  "numChildren": 1,
+  "totalRoomNights": 1,
+  "dateResMade": "2026-02-06T13:28:06.938Z",
+  "dateResUpdated": "2026-02-06T13:28:06.938Z",
+  "resMadeBy": "…",
+  "resUpdatedBy": "…",
+  "checkedInBy": "…",
+  "checkedOutBy": "…",
+  "cancellationID": "…",
+  "cancellationCode": "…",
+  "cancellationComment": "…",
+  "cancellationDate": "2026-02-06T13:28:06.938Z",
+  "sourceName": "…",
+  "sourceID": "…",
+  "averageRoomRate": 1,
+  "depositAmountDue": 1,
+  "depositAmountPaid": 1,
+  "accountBalance": 1,
+  "totalOtherRevenue": 1,
+  "totalFBRevenue": 1,
+  "totalRoomRevenue": 1,
+  "totalTax": 1,
+  "totalRevenue": 1,
+  "currencyCode": "…",
+  "guests": [
+    {
+      "arrivalDate": "2026-02-06T13:28:06.938Z",
+      "departureDate": "2026-02-06T13:28:06.938Z",
+      "profileSequence": 1,
+      "isPrimary": true,
+      "folioID": "…",
+      "percentageBilled": 1,
+      "purposeOfStay": "…",
+      "originalReservationNum": "…",
+      "originalConfirmationNum": "…",
+      "guestGroupSequence": 1,
+      "taxType": "…",
+      "guestProfile": {
+        "cendynPropertyID": "…",
+        "propertyName": "…",
+        "uniqueIDs": [
+          {
+            "id": "…",
+            "type": "…",
+            "context": "…"
+          }
+        ],
+        "profileTypeCode": "…",
+        "profileTypeDescription": "…",
+        "nameCode": "…",
+        "profileTypeCategory": "…",
+        "jobTitle": "…",
+        "salutation": "…",
+        "firstName": "…",
+        "familiarName": "…",
+        "middleName": "…",
+        "lastName": "…",
+        "fullName": "…",
+        "nameSuffix": "…",
+        "vipid": "…",
+        "vipCode": "…",
+        "primaryLanguage": "…",
+        "genderCode": "…",
+        "dobYear": "…",
+        "dobMonth": "…",
+        "dobDayOfMonth": "…",
+        "companyName": "…",
+        "arNumber": "…",
+        "allowMail": true,
+        "allowEMail": true,
+        "guestPriv": true,
+        "allowPhone": true,
+        "allowSMS": true,
+        "allowHistory": true,
+        "allowMarketResearch": true,
+        "allowThirdParty": true,
+        "allowLoyaltyProgram": true,
+        "creatorCode": "…",
+        "lastUpdaterCode": "…",
+        "dateProfileCreated": "2026-02-06T13:28:06.938Z",
+        "dateProfileUpdated": "2026-02-06T13:28:06.938Z",
+        "inactiveDate": "2026-02-06T13:28:06.938Z",
+        "nationality": "…",
+        "resortCode": "…",
+        "retiredProfileId": "…",
+        "transferredSubscriptionId": "…",
+        "sourceName": "…",
+        "sourceID": "…",
+        "optOutMarketing": true,
+        "optOutDate": "2026-02-06T13:28:06.938Z",
+        "profileExtension": {
+          "languageCode": "…",
+          "salutationExt": "…",
+          "firstNameExt": "…",
+          "familiarNameExt": "…",
+          "middleNameExt": "…",
+          "lastNameExt": "…",
+          "nameSuffixExt": "…",
+          "companyNameExt": "…",
+          "blacklist": "…",
+          "blackListMessage": "…",
+          "anonymizationStatus": "…",
+          "priorityCode": "…",
+          "roomsPotential": "…",
+          "salesScope": "…",
+          "scopeCity": "…",
+          "actionCode": "…",
+          "businessSegment": "…",
+          "accountType": "…",
+          "salesSource": "…",
+          "industryCode": "…",
+          "competitionCode": "…",
+          "influenceCode": "…"
+        },
+        "addresses": [
+          {
+            "addressTypeCode": "…",
+            "addressTypeDescription": "…",
+            "addressStatus": "…",
+            "externalId": "…",
+            "attn": "…",
+            "address1": "…",
+            "address2": "…",
+            "city": "…",
+            "stateProvince": "…",
+            "postalCode": "…",
+            "countryCode": "…",
+            "isPrimary": true,
+            "addressLanguage": "…",
+            "addressCleansed": true,
+            "optOutMarketing": true,
+            "optOutDate": "2026-02-06T13:28:06.938Z"
+          }
+        ],
+        "memberships": [
+          {
+            "programCode": "…",
+            "membershipID": "…",
+            "membershipCategory": "…",
+            "membershipName": "…",
+            "membershipLevel": "…",
+            "membershipStatus": "…",
+            "enrollmentCode": "…",
+            "dateMembershipStarts": "2026-02-06T13:28:06.938Z",
+            "dateMembershipExpires": "2026-02-06T13:28:06.938Z",
+            "totalStays": 1,
+            "awardCredits": 1,
+            "awardAvailable": 1,
+            "primaryAirline": true,
+            "displaySequence": 1,
+            "externalID": "…",
+            "sourceName": "…",
+            "sourceID": "…",
+            "isActive": true,
+            "inactiveDate": "2026-02-06T13:28:06.938Z",
+            "pointsIndicator": true
+          }
+        ],
+        "contactMethods": [
+          {
+            "type": "…",
+            "category": "…",
+            "dataValue": "…",
+            "extraData": "…",
+            "externalId": "…",
+            "optOut": true,
+            "sourceDate": "2026-02-06T13:28:06.938Z",
+            "isPrimary": true,
+            "confirmation": true,
+            "inactiveDate": "2026-02-06T13:28:06.938Z",
+            "optOutMarketing": true,
+            "optOutDate": "2026-02-06T13:28:06.938Z"
+          }
+        ],
+        "actionComments": [
+          {
+            "commentType": "…",
+            "commentTitle": "…",
+            "commentClass": "…",
+            "comment": "…",
+            "actionType": "…",
+            "actionDate": "2026-02-06T13:28:06.938Z",
+            "inactiveDate": "2026-02-06T13:28:06.938Z",
+            "guestViewable": true,
+            "externalID": "…",
+            "creatorCode": "…",
+            "dateCommentCreated": "2026-02-06T13:28:06.938Z",
+            "resortCode": "…"
+          }
+        ],
+        "specialRequests": [
+          {
+            "requestType": "…",
+            "requestCode": "…",
+            "requestComments": "…",
+            "resortField": "…",
+            "actionTypeCode": "…",
+            "actionType": "…",
+            "externalID": "…",
+            "inactiveDate": "2026-02-06T13:28:06.938Z"
+          }
+        ],
+        "udfDataCollection": [
+          {
+            "cendynPropertyID": "…",
+            "moduleName": "…",
+            "tableName": "…",
+            "columnName": "…",
+            "udfValue": "…"
+          }
+        ],
+        "lead": {
+          "fK_Reservation": "123e4567-e89b-12d3-a456-426614174000",
+          "externalLeadID": "…",
+          "externalLeadSource": "…",
+          "leadStatus": "…",
+          "leadAcquired": "2026-02-06T13:28:06.938Z",
+          "tentativeStartDate": "2026-02-06T13:28:06.938Z",
+          "tentativeEndDate": "2026-02-06T13:28:06.938Z",
+          "assignedAgent": "…",
+          "assignedDate": "2026-02-06T13:28:06.938Z",
+          "contactMethod": "…",
+          "contactAgent": "…",
+          "contactDate": "2026-02-06T13:28:06.938Z",
+          "lastFollowupMethod": "…",
+          "lastFollowupAgent": "…",
+          "lastFollowupDate": "2026-02-06T13:28:06.938Z",
+          "bookingMethod": "…",
+          "bookingAgent": "…",
+          "bookingDate": "2026-02-06T13:28:06.938Z",
+          "reasonforStay": "…",
+          "marketCode": "…",
+          "campaignCode": "…",
+          "campaignName": "…",
+          "priceEstimate": 1,
+          "flaggedForAttention": true
+        },
+        "relatedTravelers": [
+          {
+            "cendynPropertyID": "…",
+            "propertyName": "…",
+            "uniqueIDs": [
+              {
+                "id": "…",
+                "type": "…",
+                "context": "…"
+              }
+            ],
+            "salutation": "…",
+            "firstName": "…",
+            "familiarName": "…",
+            "middleName": "…",
+            "lastName": "…",
+            "fullName": "…",
+            "suffix": "…",
+            "relation": "…",
+            "isPrimary": true
+          }
+        ],
+        "documents": [
+          {
+            "documentID": "…",
+            "documentType": "…",
+            "documentSource": "…",
+            "codeOnDocument": "…",
+            "documentNotes": "…",
+            "nameOnDocument": "…",
+            "nationalityOnDocument": "…",
+            "effectiveDate": "2026-02-06T13:28:06.938Z",
+            "expirationDate": "2026-02-06T13:28:06.938Z",
+            "issuer": "…",
+            "issuerCountry": "…",
+            "isPrimary": true,
+            "piI_StoredAs": "…",
+            "inactiveDate": "2026-02-06T13:28:06.938Z"
+          }
+        ],
+        "vouchers": [
+          {
+            "hotelCode": "…",
+            "voucherID": "…",
+            "voucherID2": "…",
+            "appliedToResort": "…",
+            "reservationID": "…",
+            "profileIDRecipient": "…",
+            "subscriberIDRecipient": "…",
+            "recipientName": "…",
+            "emailaddress": "…",
+            "profileIDPurchaser": "…",
+            "purchaserName": "…",
+            "voucherStatus": "…",
+            "voucherType": "…",
+            "membershipType": "…",
+            "certCode": "…",
+            "certNo": "…",
+            "shortDescription": "…",
+            "giftMessage": "…",
+            "comments": "…",
+            "voucherAmount": 1,
+            "currencyCode": "…",
+            "issueType": "…",
+            "dateConsumed": "2026-02-06T13:28:06.938Z",
+            "expirationDate": "2026-02-06T13:28:06.938Z",
+            "awardPoints": 1,
+            "ruleType": "…",
+            "ruleValue": "…",
+            "cancelAllowed": true,
+            "maxExtensions": 1,
+            "referenceType": "…",
+            "referenceID": "…",
+            "promotionCode": "…",
+            "reservationConsumed": true,
+            "webConsumed": true,
+            "pmsConsumed": true,
+            "verifyCertNo": true,
+            "generateInLieu": true,
+            "creatorCode": "…",
+            "lastUpdaterCode": "…",
+            "folioID": "…",
+            "inactiveDate": "2026-02-06T13:28:06.938Z"
+          }
+        ],
+        "profilePolicies": [
+          {
+            "policyType": "…",
+            "attributeName": "…",
+            "integerValue": 1,
+            "stringValue": "…",
+            "effectiveDate": "2026-02-06T13:28:06.938Z",
+            "expirationDate": "2026-02-06T13:28:06.938Z",
+            "comments": "…",
+            "externalID": "…",
+            "appliesTo": "…",
+            "appliesToDescriptor": "…"
+          }
+        ]
+      },
+      "externalReferences": [
+        {
+          "referenceType": "…",
+          "referenceSource": "…",
+          "referenceNumber": "…",
+          "legNumber": 1
+        }
+      ],
+      "activities": [
+        {
+          "cendynPropertyID": "…",
+          "reservationID": "…",
+          "profileID": "…",
+          "activityStatus": "…",
+          "activityCategory": "…",
+          "activityID1": "…",
+          "activitySource1": "…",
+          "activityID2": "…",
+          "activitySource2": "…",
+          "activityName": "…",
+          "activityDescription": "…",
+          "activityNotes": "…",
+          "groupCode": "…",
+          "currencyCode": "…",
+          "amount": 1,
+          "depositRequired": 1,
+          "depositCollectorType": "…",
+          "inactiveDate": "2026-02-06T13:28:06.938Z",
+          "urlLink": "…",
+          "confirmationNum": "…",
+          "activityClass": "…",
+          "activityCode": "…",
+          "activitySubCode": "…",
+          "languageCode": "…",
+          "numAdults": 1,
+          "numYouths": 1,
+          "numChildren": 1,
+          "startDate": "2026-02-06T13:28:06.938Z",
+          "startTaskType": "…",
+          "startLocationCode": "…",
+          "startLocationName": "…",
+          "endDate": "2026-02-06T13:28:06.938Z",
+          "endTaskType": "…",
+          "endLocationCode": "…",
+          "durationUnit": "…",
+          "relatedDate": "2026-02-06T13:28:06.938Z",
+          "relatedType": "…",
+          "relatedLocationCode": "…",
+          "relatedDescription": "…",
+          "vipCode": "…",
+          "assignedUser": "…",
+          "bookedDate": "2026-02-06T13:28:06.938Z",
+          "bookedBy": "…",
+          "lastUpdatedDate": "2026-02-06T13:28:06.938Z",
+          "lastUpdatedBy": "…",
+          "cancellationCode": "…",
+          "customField1": "…",
+          "customField2": "…",
+          "customField3": "…",
+          "customField4": "…",
+          "customField5": "…"
+        }
+      ],
+      "udfDataCollection": [
+        {
+          "cendynPropertyID": "…",
+          "moduleName": "…",
+          "tableName": "…",
+          "columnName": "…",
+          "udfValue": "…"
+        }
+      ]
+    }
+  ],
+  "stayHeaders": [
+    {
+      "stayBeginDate": "2026-02-06T13:28:06.938Z",
+      "stayEndDate": "2026-02-06T13:28:06.938Z",
+      "buildingCode": "…",
+      "roomNumber": "…",
+      "roomType": "…",
+      "marketSegmentCode": "…",
+      "resSourceCode": "…",
+      "shareCode": "…",
+      "invBlockCode": "…",
+      "resStatusType": "…",
+      "rtc": "…",
+      "channelCode": "…",
+      "externalID": "…",
+      "sourceSequence": 1,
+      "rateType": "…",
+      "rateCategory": "…",
+      "currencyCode": "…",
+      "promotionCode": "…",
+      "stayDetails": [
+        {
+          "stayDate": "2026-02-06T13:28:06.938Z",
+          "roomNumber": "…",
+          "roomType": "…",
+          "rateType": "…",
+          "marketCode": "…",
+          "resSourceCode": "…",
+          "numberOfRooms": 1,
+          "dailyRate": 1,
+          "currencyCode": "…",
+          "dateStayDetailUpdated": "2026-02-06T13:28:06.938Z",
+          "dailyRateBeforeTax": 1,
+          "dailyRateAfterTax": 1,
+          "roomRevenue": 1,
+          "externalID": "…",
+          "taxTypes": [
+            {
+              "amount": 1,
+              "code": "…",
+              "description": "…"
+            }
+          ]
+        }
+      ],
+      "cancelPenalties": [
+        {
+          "ruleType": "…",
+          "ruleCode": "…",
+          "ruleDescription": "…",
+          "resortRuleID": "…",
+          "ruleID": "…",
+          "amount": 1,
+          "percentage": 1,
+          "cancelByDate": "2026-02-06T13:28:06.938Z",
+          "cancelPercentDue": 1,
+          "cancelRoomNights": 1,
+          "activityDeposit": 1,
+          "roomDeposit": 1,
+          "ruleScope": "…",
+          "currencyCode": "…"
+        }
+      ],
+      "resServices": [
+        {
+          "serviceType": "…",
+          "serviceGroup": "…",
+          "resAction": "…",
+          "servicePricingType": "…",
+          "serviceSequence": 1,
+          "serviceInventoryCode": "…",
+          "startDate": "2026-02-06T13:28:06.938Z",
+          "endDate": "2026-02-06T13:28:06.938Z",
+          "frequency": "…",
+          "priceAmount": 1,
+          "currencyCode": "…",
+          "quantity": 1,
+          "ratePlanCode": "…",
+          "inventoryBlockCode": "…",
+          "priceGuaranteed": true,
+          "inclusive": true,
+          "serviceComments": "…",
+          "externalID": "…",
+          "inactiveDate": "2026-02-06T13:28:06.938Z",
+          "servicePrices": [
+            {
+              "externalID": "…",
+              "actualBeginDate": "2026-02-06T13:28:06.938Z",
+              "actualEndDate": "2026-02-06T13:28:06.938Z",
+              "unitPrice": 1
+            }
+          ],
+          "unitPrice": 1
+        }
+      ],
+      "payInfoCollection": [
+        {
+          "recordType": "…",
+          "methodTypeCode": "…",
+          "methodType": "…",
+          "dueDate": "2026-02-06T13:28:06.938Z",
+          "amount": 1,
+          "currencyCode": "…",
+          "cancelIfNotReceived": true,
+          "dropTime": "2026-02-06T13:28:06.938Z",
+          "comments": "…",
+          "guaranteeDescription": "…"
+        }
+      ],
+      "fixedCharges": [
+        {
+          "chargeCode": "…",
+          "chargeName": "…",
+          "description": "…",
+          "frequency": "…",
+          "chargeUnit": 1,
+          "chargeType": "…",
+          "currencyCode": "…",
+          "amount": 1,
+          "taxInclusive": true,
+          "taxAmount": 1,
+          "percentage": 1,
+          "effectiveDate": "2026-02-06T13:28:06.938Z",
+          "expirationDate": "2026-02-06T13:28:06.938Z",
+          "taxable": true,
+          "customCode1": "…",
+          "customCode2": "…",
+          "customCode3": "…",
+          "inactiveDate": "2026-02-06T13:28:06.938Z"
+        }
+      ]
+    }
+  ],
+  "actionComments": [
+    {
+      "commentType": "…",
+      "commentTitle": "…",
+      "commentClass": "…",
+      "comment": "…",
+      "actionType": "…",
+      "actionDate": "2026-02-06T13:28:06.938Z",
+      "inactiveDate": "2026-02-06T13:28:06.938Z",
+      "guestViewable": true,
+      "externalID": "…",
+      "creatorCode": "…",
+      "dateCommentCreated": "2026-02-06T13:28:06.938Z",
+      "resortCode": "…"
+    }
+  ],
+  "specialRequests": [
+    {
+      "requestType": "…",
+      "requestCode": "…",
+      "requestComments": "…",
+      "resortField": "…",
+      "actionTypeCode": "…",
+      "actionType": "…",
+      "externalID": "…",
+      "inactiveDate": "2026-02-06T13:28:06.938Z"
+    }
+  ],
+  "udfDataCollection": [
+    {
+      "cendynPropertyID": "…",
+      "moduleName": "…",
+      "tableName": "…",
+      "columnName": "…",
+      "udfValue": "…"
+    }
+  ],
+  "taxTypes": [
+    {
+      "amount": 1,
+      "code": "…",
+      "description": "…"
+    }
+  ],
+  "stayHistoryRevenueCollection": [
+    {
+      "recordStatus": "…",
+      "revenueGroup": "…",
+      "revenueType": "…",
+      "amount": 1,
+      "currencyCode": "…",
+      "folioWindow": "…",
+      "transactionDate": "2026-02-06T13:28:06.938Z",
+      "inactiveDate": "2026-02-06T13:28:06.938Z"
+    }
+  ],
+  "resServices": [
+    {
+      "serviceType": "…",
+      "serviceGroup": "…",
+      "resAction": "…",
+      "servicePricingType": "…",
+      "serviceSequence": 1,
+      "serviceInventoryCode": "…",
+      "startDate": "2026-02-06T13:28:06.938Z",
+      "endDate": "2026-02-06T13:28:06.938Z",
+      "frequency": "…",
+      "priceAmount": 1,
+      "currencyCode": "…",
+      "quantity": 1,
+      "ratePlanCode": "…",
+      "inventoryBlockCode": "…",
+      "priceGuaranteed": true,
+      "inclusive": true,
+      "serviceComments": "…",
+      "externalID": "…",
+      "inactiveDate": "2026-02-06T13:28:06.938Z",
+      "servicePrices": [
+        {
+          "externalID": "…",
+          "actualBeginDate": "2026-02-06T13:28:06.938Z",
+          "actualEndDate": "2026-02-06T13:28:06.938Z",
+          "unitPrice": 1
+        }
+      ],
+      "unitPrice": 1
+    }
+  ],
+  "externalReferences": [
+    {
+      "referenceType": "…",
+      "referenceSource": "…",
+      "referenceNumber": "…",
+      "legNumber": 1
+    }
+  ],
+  "paymentMethods": [
+    {
+      "methodOfPayment": "…",
+      "folioID": "…",
+      "paymentCards": [
+        {
+          "cardType": "…",
+          "cardHolderName": "…",
+          "cardValue": "…",
+          "expirationDate": "…",
+          "securityCode": "…",
+          "isPrimary": true
+        }
+      ]
+    }
+  ],
+  "resActions": [
+    {
+      "externalID": "…",
+      "resActionTypeID": "…",
+      "resActionType": "…",
+      "sourceResAction": "…",
+      "resActionText": "…",
+      "resActionBy": "…",
+      "resActionDate": "2026-02-06T13:28:06.938Z",
+      "inactiveDate": "2026-02-06T13:28:06.938Z"
+    }
+  ],
+  "children": [
+    {
+      "name": "…",
+      "age": 1
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+
+### Create Profile - Individual with Full Details
+# @name createProfileFull
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "PROFILE-001",
+        "type": "PROFILE",
+        "context": "PMS"
+      }
+    ],
+    "profileTypeCode": "I",
+    "firstName": "Jane",
+    "lastName": "Anderson",
+    "middleName": "Marie",
+    "salutation": "Ms.",
+    "genderCode": "F",
+    "primaryLanguage": "EN",
+    "nationality": "US",
+    "dobYear": "1985",
+    "dobMonth": "06",
+    "dobDayOfMonth": "15",
+    "addresses": [
+      {
+        "addressTypeCode": "HOME",
+        "address1": "456 Oak Avenue",
+        "address2": "Apt 12B",
+        "city": "Los Angeles",
+        "stateProvince": "CA",
+        "postalCode": "90001",
+        "countryCode": "US",
+        "isPrimary": true
+      },
+      {
+        "addressTypeCode": "BUSINESS",
+        "address1": "789 Corporate Blvd",
+        "city": "Los Angeles",
+        "stateProvince": "CA",
+        "postalCode": "90002",
+        "countryCode": "US",
+        "isPrimary": false
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "PERSONAL",
+        "dataValue": "jane.anderson@example.com",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "MOBILE",
+        "dataValue": "+1-555-9876",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "BUSINESS",
+        "dataValue": "+1-555-5555",
+        "isPrimary": false
+      }
+    ],
+    "memberships": [
+      {
+        "programCode": "REWARDS",
+        "membershipID": "GOLD789456",
+        "membershipLevel": "GOLD",
+        "membershipStatus": "ACTIVE",
+        "isActive": true
+      }
+    ],
+    "actionComments": [
+      {
+        "commentType": "PREFERENCE",
+        "comment": "Prefers high floor, non-smoking room with ocean view",
+        "guestViewable": true
+      }
+    ]
+  }
+]
+
+###
+
+### Create Profile - Minimal Required Fields
+# @name createProfileMinimal
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "PROFILE-MIN-002",
+        "type": "PROFILE"
+      }
+    ],
+    "profileTypeCode": "I",
+    "lastName": "Johnson",
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "PERSONAL",
+        "dataValue": "johnson@example.com"
+      }
+    ]
+  }
+]
+
+###
+
+### Create Profile - Company
+# @name createProfileCompany
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "COMPANY-001",
+        "type": "PROFILE",
+        "context": "PMS"
+      }
+    ],
+    "profileTypeCode": "C",
+    "lastName": "Acme Corporation",
+    "companyName": "Acme Corporation",
+    "addresses": [
+      {
+        "addressTypeCode": "BUSINESS",
+        "address1": "100 Business Park Drive",
+        "city": "Chicago",
+        "stateProvince": "IL",
+        "postalCode": "60601",
+        "countryCode": "US",
+        "isPrimary": true
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "EMAIL",
+        "category": "BUSINESS",
+        "dataValue": "contact@acmecorp.com",
+        "isPrimary": true
+      },
+      {
+        "type": "PHONE",
+        "category": "BUSINESS",
+        "dataValue": "+1-312-555-0100",
+        "isPrimary": true
+      }
+    ]
+  }
+]
+
+###
+
+### Retrieve Profile by ID
+# @name getProfileById
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/0?CendynPropertyId={{propertyID}}&Id=PROFILE-001&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###
+
+### Retrieve Profile by Email
+# @name getProfileByEmail
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/3?EmailAddress=jane.anderson@example.com&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###
+
+### Retrieve Profile by Last Name
+# @name getProfileByLastName
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/1?LastName=Anderson&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###
+
+### Retrieve Profile by Membership ID
+# @name getProfileByMembership
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/4?MembershipID=GOLD789456&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###
+
+### Retrieve Profile by Phone Number
+# @name getProfileByPhone
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/5?PhoneNumber=%2B1-555-9876&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###
+
+### Retrieve Profiles by Last Updated (Date Range)
+# @name getProfilesByLastUpdated
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/2?StartDate=2026-01-01T00:00:00Z&EndDate=2026-12-31T23:59:59Z&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+
+###

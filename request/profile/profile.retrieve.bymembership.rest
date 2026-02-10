@@ -1,0 +1,12 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profile by Membership ID
+# @name getProfileByMembership
+# QueryType: 4 = MembershipID
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/4?MembershipID=GOLD789456&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

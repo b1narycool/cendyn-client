@@ -1,0 +1,83 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Create Reservation - Minimal Required Fields
+# @name createReservationMinimal
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "RES-MIN-002",
+        "type": "PMS"
+      }
+    ],
+    "resTypeCode": "R",
+    "resArriveDate": "2026-04-01T14:00:00Z",
+    "resDepartDate": "2026-04-03T11:00:00Z",
+    "numAdults": 1,
+    "guests": [
+      {
+        "isPrimary": true,
+        "percentageBilled": 1,
+        "guestProfile": {
+          "cendynPropertyID": "{{propertyID}}",
+          "uniqueIDs": [
+            {
+              "id": "GUEST-MIN-002",
+              "type": "PMS"
+            }
+          ],
+          "profileTypeCode": "I",
+          "lastName": "Smith",
+          "contactMethods": [
+            {
+              "type": "EMAIL",
+              "category": "PERSONAL",
+              "dataValue": "smith@example.com"
+            }
+          ]
+        }
+      }
+    ],
+    "stayHeaders": [
+      {
+        "stayBeginDate": "2026-04-01T14:00:00Z",
+        "stayEndDate": "2026-04-03T11:00:00Z",
+        "roomType": "STANDARD",
+        "rateType": "RACK",
+        "stayDetails": [
+          {
+            "stayDate": "2026-04-01T00:00:00Z",
+            "roomType": "STANDARD",
+            "numberOfRooms": 1,
+            "dailyRate": 150.00,
+            "taxTypes": [
+              {
+                "amount": 15.00
+              }
+            ]
+          },
+          {
+            "stayDate": "2026-04-02T00:00:00Z",
+            "roomType": "STANDARD",
+            "numberOfRooms": 1,
+            "dailyRate": 150.00,
+            "taxTypes": [
+              {
+                "amount": 15.00
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+###

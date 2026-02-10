@@ -1,0 +1,12 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profile by Phone Number
+# @name getProfileByPhone
+# QueryType: 5 = PhoneNumber
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/5?PhoneNumber=%2B1-555-9876&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

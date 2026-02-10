@@ -1,0 +1,105 @@
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Fri, 06 Feb 2026 21:14:13 GMT
+Server: Microsoft-IIS/10.0
+Content-Encoding: gzip
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=2592000
+Request-Context: appId=cid-v1:cdd3d783-cb9d-4cdd-a3e1-e020381b2a55
+X-Powered-By: ASP.NET
+
+[
+  {
+    "cendynPropertyID": "369",
+    "uniqueIDs": [
+      {
+        "id": "939466",
+        "type": "PMS"
+      },
+      {
+        "id": "OHIP",
+        "type": "PMS2"
+      }
+    ],
+    "profileTypeCode": "I",
+    "profileTypeDescription": "Guest",
+    "nameCode": "181347",
+    "salutation": "",
+    "firstName": "JACKIE",
+    "familiarName": "SUAN",
+    "middleName": "",
+    "lastName": "SUAN",
+    "fullName": "",
+    "nameSuffix": "",
+    "genderCode": "U",
+    "dobYear": "1960",
+    "dobMonth": "9 ",
+    "dobDayOfMonth": "13",
+    "companyName": "",
+    "allowMail": false,
+    "allowEMail": false,
+    "guestPriv": false,
+    "allowPhone": false,
+    "allowSMS": false,
+    "allowThirdParty": false,
+    "allowLoyaltyProgram": false,
+    "creatorCode": "OHIPCN_POLYAPI@IOHIP",
+    "lastUpdaterCode": "OHIPCN_VERIDOCS@IOHI",
+    "dateProfileCreated": "2024-06-04T09:55:04",
+    "dateProfileUpdated": "2025-03-03T12:31:40",
+    "resortCode": "SAND01CN",
+    "sourceName": "QES-OHIP-QA",
+    "sourceID": "28303",
+    "profileExtension": {},
+    "addresses": [],
+    "memberships": [],
+    "contactMethods": [
+      {
+        "type": "Phone",
+        "category": "MOBILE",
+        "dataValue": "+1234567890",
+        "extraData": "",
+        "sourceDate": "2025-03-03T17:31:40",
+        "isPrimary": true
+      },
+      {
+        "type": "IP",
+        "category": "Email",
+        "dataValue": "john.doe@example.com",
+        "extraData": "",
+        "sourceDate": "2025-03-03T17:31:40",
+        "isPrimary": true
+      }
+    ],
+    "actionComments": [],
+    "specialRequests": [],
+    "udfDataCollection": [
+      {
+        "cendynPropertyID": "369",
+        "moduleName": "Profiles",
+        "tableName": "Profiles",
+        "columnName": "ImportSource",
+        "udfValue": "QES-OHIP-QA"
+      }
+    ],
+    "relatedTravelers": [],
+    "documents": [
+      {
+        "documentID": "XXXXXXX14",
+        "documentType": "Other",
+        "documentSource": "DocumentId",
+        "codeOnDocument": "Other",
+        "effectiveDate": "2020-07-10T00:00:00",
+        "expirationDate": "2025-12-31T00:00:00",
+        "issuer": "United States",
+        "issuerCountry": "US",
+        "isPrimary": true,
+        "piI_StoredAs": "PlainText"
+      }
+    ],
+    "vouchers": [],
+    "profilePolicies": []
+  }
+]

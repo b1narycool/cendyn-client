@@ -1,0 +1,12 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Retrieve Profiles by Last Updated (Date Range)
+# @name getProfilesByLastUpdated
+# QueryType: 2 = LastUpdated
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/profiles/2?StartDate=2026-01-01T00:00:00Z&EndDate=2026-12-31T23:59:59Z&PageSize=10&PageNumber=1
+Accept: */*
+Authorization: Bearer {{token}}
+###

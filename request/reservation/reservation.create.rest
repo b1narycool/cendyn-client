@@ -1,0 +1,132 @@
+### Variables
+@accountId = {{$dotenv accountId}}
+@propertyID = {{$dotenv propertyID}}
+@token = {{$dotenv token}}
+@baseUrl = {{$dotenv host}}
+### Create Reservation - Full Details
+# @name createReservation
+POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations
+Accept: */*
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "RES-TEST-002",
+        "type": "PMS"
+      }
+    ],
+    "resTypeCode": "R",
+    "resArriveDate": "2026-03-15T14:00:00Z",
+    "resDepartDate": "2026-03-18T11:00:00Z",
+    "numAdults": 2,
+    "numChildren": 1,
+    "confirmationNum": "CONF123456",
+    "roomTypeCode": "DELUXE",
+    "rateCode": "BAR",
+    "marketSegmentCode": "LEISURE",
+    "guests": [
+      {
+        "isPrimary": true,
+        "percentageBilled": 1,
+        "guestProfile": {
+          "cendynPropertyID": "{{propertyID}}",
+          "uniqueIDs": [
+            {
+              "id": "GUEST-001",
+              "type": "PMS"
+            }
+          ],
+          "profileTypeCode": "I",
+          "firstName": "Diego",
+          "lastName": "Perez",
+          "addresses": [
+            {
+              "addressTypeCode": "HOME",
+              "address1": "123 Main Street",
+              "city": "New York",
+              "stateProvince": "NY",
+              "postalCode": "10001",
+              "countryCode": "US",
+              "isPrimary": true
+            }
+          ],
+          "contactMethods": [
+            {
+              "type": "EMAIL",
+              "category": "PERSONAL",
+              "dataValue": "diego.perez@example.com",
+              "isPrimary": true
+            },
+            {
+              "type": "PHONE",
+              "category": "MOBILE",
+              "dataValue": "+1-555-0123",
+              "isPrimary": true
+            }
+          ],
+          "memberships": [
+            {
+              "programCode": "LOYALTY",
+              "membershipID": "MEMBER123456",
+              "isActive": true
+            }
+          ]
+        }
+      }
+    ],
+    "stayHeaders": [
+      {
+        "stayBeginDate": "2026-03-15T14:00:00Z",
+        "stayEndDate": "2026-03-18T11:00:00Z",
+        "roomType": "DELUXE",
+        "rateType": "BAR",
+        "stayDetails": [
+          {
+            "stayDate": "2026-03-15T00:00:00Z",
+            "roomType": "DELUXE",
+            "numberOfRooms": 1,
+            "dailyRate": 250.00,
+            "taxTypes": [
+              {
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
+              }
+            ]
+          },
+          {
+            "stayDate": "2026-03-16T00:00:00Z",
+            "roomType": "DELUXE",
+            "numberOfRooms": 1,
+            "dailyRate": 250.00,
+            "taxTypes": [
+              {
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
+              }
+            ]
+          },
+          {
+            "stayDate": "2026-03-17T00:00:00Z",
+            "roomType": "DELUXE",
+            "numberOfRooms": 1,
+            "dailyRate": 250.00,
+            "taxTypes": [
+              {
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+###
