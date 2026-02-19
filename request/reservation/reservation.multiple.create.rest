@@ -3,8 +3,7 @@
 @propertyID = {{$dotenv propertyID}}
 @token = {{$dotenv token}}
 @baseUrl = {{$dotenv host}}
-
-### Create Reservation
+### Create Reservation - Full Details
 # @name createReservation
 POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations
 Accept: */*
@@ -16,9 +15,8 @@ Authorization: Bearer {{token}}
     "cendynPropertyID": "{{propertyID}}",
     "uniqueIDs": [
       {
-        "id": "RES-TEST-888",
-        "type": "RESERVATION",
-        "context": "PMS"
+        "id": "RES-TEST-222",
+        "type": "PMS"
       }
     ],
     "resTypeCode": "R",
@@ -39,13 +37,12 @@ Authorization: Bearer {{token}}
           "uniqueIDs": [
             {
               "id": "GUEST-001",
-              "type": "PROFILE",
-              "context": "PMS"
+              "type": "PMS"
             }
           ],
           "profileTypeCode": "I",
-          "firstName": "John",
-          "lastName": "Doe",
+          "firstName": "Diego",
+          "lastName": "Perez",
           "addresses": [
             {
               "addressTypeCode": "HOME",
@@ -61,7 +58,7 @@ Authorization: Bearer {{token}}
             {
               "type": "EMAIL",
               "category": "PERSONAL",
-              "dataValue": "john.doe@example.com",
+              "dataValue": "diego.perez@example.com",
               "isPrimary": true
             },
             {
@@ -130,39 +127,24 @@ Authorization: Bearer {{token}}
         ]
       }
     ]
-  }
-]
-
-###
-
-### Retrieve Reservation by ID
-# @name getReservationById
-GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations?cendynPropertyId={{propertyID}}&reservationID=RES-TEST-001
-Accept: */*
-Authorization: Bearer {{token}}
-
-###
-
-### Create Reservation - Minimal Required Fields
-# @name createReservationMinimal
-POST {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations
-Accept: */*
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-[
+  },
   {
     "cendynPropertyID": "{{propertyID}}",
     "uniqueIDs": [
       {
-        "id": "RES-MIN-002",
-        "type": "RESERVATION"
+        "id": "RES-TEST-223",
+        "type": "PMS"
       }
     ],
     "resTypeCode": "R",
-    "resArriveDate": "2026-04-01T14:00:00Z",
-    "resDepartDate": "2026-04-03T11:00:00Z",
-    "numAdults": 1,
+    "resArriveDate": "2026-03-15T14:00:00Z",
+    "resDepartDate": "2026-03-18T11:00:00Z",
+    "numAdults": 2,
+    "numChildren": 1,
+    "confirmationNum": "CONF123456",
+    "roomTypeCode": "DELUXE",
+    "rateCode": "BAR",
+    "marketSegmentCode": "LEISURE",
     "guests": [
       {
         "isPrimary": true,
@@ -171,17 +153,43 @@ Authorization: Bearer {{token}}
           "cendynPropertyID": "{{propertyID}}",
           "uniqueIDs": [
             {
-              "id": "GUEST-MIN-002",
-              "type": "PROFILE"
+              "id": "GUEST-001",
+              "type": "PMS"
             }
           ],
           "profileTypeCode": "I",
-          "lastName": "Smith",
+          "firstName": "Diego",
+          "lastName": "Perez",
+          "addresses": [
+            {
+              "addressTypeCode": "HOME",
+              "address1": "123 Main Street",
+              "city": "New York",
+              "stateProvince": "NY",
+              "postalCode": "10001",
+              "countryCode": "US",
+              "isPrimary": true
+            }
+          ],
           "contactMethods": [
             {
               "type": "EMAIL",
               "category": "PERSONAL",
-              "dataValue": "smith@example.com"
+              "dataValue": "diego.perez@example.com",
+              "isPrimary": true
+            },
+            {
+              "type": "PHONE",
+              "category": "MOBILE",
+              "dataValue": "+1-555-0123",
+              "isPrimary": true
+            }
+          ],
+          "memberships": [
+            {
+              "programCode": "LOYALTY",
+              "membershipID": "MEMBER123456",
+              "isActive": true
             }
           ]
         }
@@ -189,37 +197,70 @@ Authorization: Bearer {{token}}
     ],
     "stayHeaders": [
       {
-        "stayBeginDate": "2026-04-01T14:00:00Z",
-        "stayEndDate": "2026-04-03T11:00:00Z",
-        "roomType": "STANDARD",
-        "rateType": "RACK",
+        "stayBeginDate": "2026-03-15T14:00:00Z",
+        "stayEndDate": "2026-03-18T11:00:00Z",
+        "roomType": "DELUXE",
+        "rateType": "BAR",
         "stayDetails": [
           {
-            "stayDate": "2026-04-01T00:00:00Z",
-            "roomType": "STANDARD",
+            "stayDate": "2026-03-15T00:00:00Z",
+            "roomType": "DELUXE",
             "numberOfRooms": 1,
-            "dailyRate": 150.00,
+            "dailyRate": 250.00,
             "taxTypes": [
               {
-                "amount": 15.00
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
               }
             ]
           },
           {
-            "stayDate": "2026-04-02T00:00:00Z",
-            "roomType": "STANDARD",
+            "stayDate": "2026-03-16T00:00:00Z",
+            "roomType": "DELUXE",
             "numberOfRooms": 1,
-            "dailyRate": 150.00,
+            "dailyRate": 250.00,
             "taxTypes": [
               {
-                "amount": 15.00
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
+              }
+            ]
+          },
+          {
+            "stayDate": "2026-03-17T00:00:00Z",
+            "roomType": "DELUXE",
+            "numberOfRooms": 1,
+            "dailyRate": 250.00,
+            "taxTypes": [
+              {
+                "amount": 25.00,
+                "code": "VAT",
+                "description": "Value Added Tax"
               }
             ]
           }
         ]
       }
     ]
+  },
+  {
+    "cendynPropertyID": "{{propertyID}}",
+    "uniqueIDs": [
+      {
+        "id": "RES-TEST-224",
+        "type": "PMS"
+      }
+    ],
+    "resTypeCode": "R",
+    "resArriveDate": "2026-03-15T14:00:00Z",
+    "resDepartDate": "2026-03-18T11:00:00Z",
+    "numAdults": 2,
+    "numChildren": 1,
+    "roomTypeCode": "DELUXE",
+    "rateCode": "BAR",
+    "marketSegmentCode": "LEISURE"
   }
 ]
-
 ###

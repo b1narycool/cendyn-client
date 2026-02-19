@@ -1,0 +1,11 @@
+HTTP/1.1 202 Accepted
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Fri, 13 Feb 2026 19:47:43 GMT
+Server: Microsoft-IIS/10.0
+Transfer-Encoding: chunked
+Strict-Transport-Security: max-age=2592000
+Request-Context: appId=cid-v1:cdd3d783-cb9d-4cdd-a3e1-e020381b2a55
+X-Powered-By: ASP.NET
+
+{"accountId":1162,"correlationId":"698f7fe0da5aad3a48a35797","recordIDs":["698f7fe0da5aad3a48a35798"],"message":"Queued","dateCreated":"2026-02-13T19:47:44.0477275Z"}

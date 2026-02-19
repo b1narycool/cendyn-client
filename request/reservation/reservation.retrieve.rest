@@ -5,7 +5,9 @@
 @baseUrl = {{$dotenv host}}
 ### Retrieve Reservation by ID
 # @name getReservationById
-GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations?cendynPropertyId={{propertyID}}&reservationID=RES-TEST-002
+GET {{baseUrl}}/api/v1/accounts/{{accountId}}/inbound/reservations
+    ?cendynPropertyId={{propertyID}}
+    &reservationId=RES-TEST-2223
 Accept: */*
 Authorization: Bearer {{token}}
 ###

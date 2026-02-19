@@ -15,7 +15,7 @@ Authorization: Bearer {{token}}
     "cendynPropertyID": "{{propertyID}}",
     "uniqueIDs": [
       {
-        "id": "RES-TEST-002",
+        "id": "RES-TEST-2223",
         "type": "PMS"
       }
     ],

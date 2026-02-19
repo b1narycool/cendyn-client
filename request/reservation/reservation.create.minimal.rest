@@ -15,7 +15,7 @@ Authorization: Bearer {{token}}
     "uniqueIDs": [
       {
         "id": "RES-MIN-002",
-        "type": "PMS"
+        "type": "R"
       }
     ],
     "resTypeCode": "R",
